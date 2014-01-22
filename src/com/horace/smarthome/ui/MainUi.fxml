@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.horace.smarthome.controller.MainUiController">
+  <children>
+    <Pane prefHeight="600.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <BorderPane layoutX="0.0" layoutY="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="750.0">
+          <bottom>
+            <FlowPane alignment="CENTER" prefHeight="233.0" prefWidth="750.0" />
+          </bottom>
+          <center>
+            <GridPane fx:id="gridPane" prefHeight="438.0" BorderPane.alignment="CENTER">
+              <children>
+                <Label text="Temperature:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label text="Humidity:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label text="Fire alarm:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label text="Security:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Label id="currentTemperature" fx:id="currentTemperatureLabel" onMouseClicked="#onCurrentTemperatureLabelClicked" text="0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                <Label id="currentHumidity" fx:id="currentHumidityLabel" onMouseClicked="#onCurrentHumidityLabelClicked" text="0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                <Label id="fireIsActive" fx:id="fireIsActiveLabel" onMouseClicked="#onFireIsActiveLabelClicked" text="OFF" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                <Label id="securityIsActive" fx:id="securityIsActiveLabel" onMouseClicked="#onSecurityIsActiveLabelClicked" text="OFF" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                <Label id="sensorTemperature" fx:id="sensorTemperatureLabel" text="0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                <Label id="sensorHumidity" fx:id="sensorHumidityLabel" text="0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                <Label id="fireIsAlarming" fx:id="fireIsAlarmingLabel" text="Not alarming" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                <Label id="securityIsAlarming" fx:id="securityIsAlarmingLabel" text="Not alarming" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                <Label alignment="CENTER_LEFT" text="Currently set value" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <effect>
+                    <DropShadow />
+                  </effect>
+                </Label>
+                <Label text="Sensor value" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                  <effect>
+                    <DropShadow />
+                  </effect>
+                </Label>
+                <Button id="securityButton" fx:id="securityAlarmButton" mnemonicParsing="false" onAction="#onSecurityAlarmButtonClicked" prefWidth="90.0" text="Turn ON" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                <Button id="fireButton" fx:id="fireAlarmButton" mnemonicParsing="false" onAction="#onFireAlarmButtonClicked" prefWidth="90.0" text="Turn OFF" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                <ImageView fx:id="saveIcon" fitHeight="64.0" fitWidth="64.0" onMouseClicked="#onSaveIconClicked" onMouseEntered="#onSaveIconEntered" onMouseExited="#onSaveIconExited" onMousePressed="#onSaveIconPressed" onMouseReleased="#onSaveIconReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                  <image>
+                    <Image url="@icons/save.jpg" />
+                  </image>
+                </ImageView>
+                <ComboBox fx:id="temperatureChooser" onAction="#onTemperatureChooserValueChanged" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <Integer fx:value="8" />
+                      <Integer fx:value="9" />
+                      <Integer fx:value="10" />
+                      <Integer fx:value="11" />
+                      <Integer fx:value="12" />
+                      <Integer fx:value="13" />
+                      <Integer fx:value="14" />
+                      <Integer fx:value="15" />
+                      <Integer fx:value="16" />
+                      <Integer fx:value="17" />
+                      <Integer fx:value="18" />
+                      <Integer fx:value="19" />
+                      <Integer fx:value="20" />
+                      <Integer fx:value="21" />
+                      <Integer fx:value="22" />
+                      <Integer fx:value="23" />
+                      <Integer fx:value="24" />
+                      <Integer fx:value="25" />
+                      <Integer fx:value="26" />
+                      <Integer fx:value="27" />
+                      <Integer fx:value="28" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <ComboBox fx:id="humidityChooser" onAction="#onHumidityChooserValueChanged" prefWidth="90.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <Integer fx:value="15" />
+                      <Integer fx:value="20" />
+                      <Integer fx:value="25" />
+                      <Integer fx:value="30" />
+                      <Integer fx:value="35" />
+                      <Integer fx:value="40" />
+                      <Integer fx:value="45" />
+                      <Integer fx:value="50" />
+                      <Integer fx:value="55" />
+                      <Integer fx:value="60" />
+                      <Integer fx:value="65" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+              </children>
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="10.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="179.0" minWidth="10.0" prefWidth="118.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="165.0" minWidth="10.0" prefWidth="91.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="231.0" minWidth="10.0" prefWidth="130.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="93.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="227.0" minWidth="10.0" prefWidth="48.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="73.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="30.0" minHeight="14.0" prefHeight="14.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="88.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+          </center>
+          <left>
+            <Pane prefHeight="200.0" prefWidth="130.0" />
+          </left>
+          <right>
+            <Pane prefHeight="510.0" prefWidth="130.0" />
+          </right>
+          <top>
+            <Pane prefHeight="50.0" prefWidth="750.0">
+              <children>
+                <ImageView fx:id="closeIcon" fitHeight="58.0" fitWidth="58.0" layoutX="678.0" layoutY="14.0" onMouseClicked="#onCloseIconClicked" onMouseEntered="#onCloseIconEntered" onMouseExited="#onCloseIconExited" onMousePressed="#onCloseIconPressed" onMouseReleased="#onCloseIconReleased" pickOnBounds="true" preserveRatio="true">
+                  <effect>
+                    <Reflection fraction="0.5295275590551181" />
+                  </effect>
+                  <image>
+                    <Image url="@icons/close.jpg" />
+                  </image>
+                </ImageView>
+                <FlowPane fx:id="roomChoosePane" alignment="CENTER" layoutX="112.0" layoutY="11.0" minWidth="-Infinity" prefHeight="39.0" prefWidth="527.0">
+                  <children>
+                    <Label id="roomLabel" text="Room:" />
+                    <ComboBox id="changer" fx:id="roomChooser" onAction="#onRoomChooserValueChanged" onMouseEntered="#onMouseOverRoomChooser">
+                      <items>
+                        <FXCollections fx:factory="observableArrayList" />
+                      </items>
+                    </ComboBox>
+                  </children>
+                </FlowPane>
+                <ImageView id="log" fx:id="logOutIcon" fitHeight="58.0" fitWidth="58.0" layoutX="610.0" layoutY="14.0" onMouseClicked="#onLogOutIconClicked" onMousePressed="#onLogOutIconPressed" onMouseReleased="#onLogOutIconReleased" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@icons/logout.jpg" />
+                  </image>
+                </ImageView>
+              </children>
+            </Pane>
+          </top>
+        </BorderPane>
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

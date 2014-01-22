@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.horace.smarthome.controller.LogInUiController">
+  <children>
+    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="600.0" prefWidth="750.0">
+      <bottom>
+        <Pane prefHeight="260.0" prefWidth="-1.0" />
+      </bottom>
+      <center>
+        <GridPane>
+          <children>
+            <Label text="Password:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+            <PasswordField fx:id="passwordField" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label fx:id="wrongPasswordField" text="Wrong password!" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ImageView fx:id="logInIcon" fitHeight="49.208984562333676" fitWidth="91.95255279541016" onMouseClicked="#onLogInButtonClicked" onMousePressed="#onLogInButtonPressed" onMouseReleased="#onLogInButtonReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="0">
+              <image>
+                <Image url="@icons/login_button2.png" />
+              </image>
+            </ImageView>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="173.0" minWidth="10.0" prefWidth="94.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="277.0" minWidth="10.0" prefWidth="154.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="277.0" minWidth="10.0" prefWidth="102.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </center>
+      <left>
+        <Pane prefHeight="200.0" prefWidth="200.0" />
+      </left>
+      <right>
+        <Pane prefHeight="200.0" prefWidth="200.0" />
+      </right>
+      <top>
+        <Pane prefHeight="260.0" prefWidth="-1.0" />
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>

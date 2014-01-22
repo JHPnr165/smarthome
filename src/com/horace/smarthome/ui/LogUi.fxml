@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.horace.smarthome.controller.LogUiController">
+  <children>
+    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="600.0" prefWidth="750.0">
+      <bottom>
+        <Pane prefHeight="200.0" prefWidth="200.0" />
+      </bottom>
+      <center>
+        <Pane prefHeight="200.0" prefWidth="200.0">
+          <children>
+            <LineChart fx:id="chart" layoutX="-186.0" layoutY="-139.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="722.0" visible="false">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="numberAxis" autoRanging="true" lowerBound="20.0" minorTickCount="10" minorTickLength="5.0" minorTickVisible="true" side="LEFT" tickLength="8.0" tickMarkVisible="true" tickUnit="5.0" upperBound="60.0" />
+              </yAxis>
+            </LineChart>
+          </children>
+        </Pane>
+      </center>
+      <left>
+        <Pane prefHeight="200.0" prefWidth="200.0" />
+      </left>
+      <right>
+        <Pane prefHeight="200.0" prefWidth="200.0" />
+      </right>
+      <top>
+        <Pane maxWidth="-1.0" prefHeight="200.0" prefWidth="750.0">
+          <children>
+            <ImageView fx:id="backIcon" fitHeight="51.0" fitWidth="68.0" layoutX="70.0" layoutY="15.0" onMouseClicked="#onBackIconClicked" onMouseEntered="#onBackIconEntered" onMouseExited="#onBackIconExited" pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@icons/back.jpg" />
+              </image>
+            </ImageView>
+            <RadioButton fx:id="radioAsList" layoutX="242.0" layoutY="33.0" mnemonicParsing="false" onAction="#onShowAsListButtonClicked" selected="true" text="Show as list">
+              <toggleGroup>
+                <ToggleGroup fx:id="showAs" />
+              </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radioAsChart" layoutX="392.0" layoutY="33.0" mnemonicParsing="false" onAction="#onShowAsChartButtonClicked" text="Show as chart" toggleGroup="$showAs" />
+            <ListView id="listView" fx:id="list" layoutX="175.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="400.0" />
+          </children>
+        </Pane>
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>
